@@ -35,10 +35,10 @@ if (shell.exec(`fastlane run version_bump_podspec path:${ab_path} version_number
     shell.exit(1);
 }
 // lint spec
-if (shell.exec(`pod spec lint ${ab_path} ${lint_args}`).code !== 0) {
-    core.setFailed('lint spec failed');
-    shell.exit(1);
-}
+// if (shell.exec(`pod spec lint ${ab_path} ${lint_args}`).code !== 0) {
+//     core.setFailed('lint spec failed');
+//     shell.exit(1);
+// }
 // pod repo push
 if (shell.exec(`pod repo push ${spec_repo_name} ${ab_path} ${push_args}`).code !== 0) {
     core.setFailed('pod repo push failed');
